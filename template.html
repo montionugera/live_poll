@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- saved from url=(0813)http://mylivepolls.com/templates/5/index.php?token=EAAAACZAVC6ygBAMkU5gZA07EFVgaK20kWXKmyyz3TLqZAWr5OvqWVDAO7ZChszTj2zU9GHZBsMwhIGVP6mX8WgpuGkzDUQD5PmvLpKrwLDsIgHVv7MRICZAWgGmEXAaRgZACbajmeMod4SVRMPZBdmAvUbcOHSxOje4ZD&postid=1005730436_10210153951217685&id=5&title=%25E0%25B9%2583%25E0%25B8%25AA%25E0%25B9%2586%2520%25E0%25B8%2581%25E0%25B8%25B1%25E0%25B8%259A%2520%25E0%25B9%2580%25E0%25B8%258B%25E0%25B8%25B0%25E0%25B8%258B%25E0%25B8%25B5%25E0%25B9%2588&subtitle=%25E0%25B8%2584%25E0%25B8%25B8%25E0%25B8%2593%25E0%25B8%258A%25E0%25B8%25AD%25E0%25B8%259A%25E0%25B9%2581%25E0%25B8%259A%25E0%25B8%259A%25E0%25B9%2584%25E0%25B8%25AB%25E0%25B8%2599&background=&image=PhP9y8PBAT.jpg&image2=fyKN41SfyR.jpg&image3=&image4=&image5=&image6=&reaction=like&reaction2=love&reaction3=&reaction4=&reaction5=&reaction6=&ext=gif -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./js/whoami"></script>
+
+	<title>Royal Canin</title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .bg {
+            background: url(rc_poll_dogcat.png) no-repeat;
+            width: 750px;
+            height: 450px;
+            position: relative;
+        }
+
+        .poll-count {
+            display: block;
+            margin-top: 353px;
+            float: left;
+            text-align: center;
+            width: 50%;
+        }
+
+        .emoji {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .emoji img {
+            width: 80px;
+        }
+
+        .label-number {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0px;
+            font-weight: bold;
+            font-size: 42px;
+            color: #333;
+        }
+    </style>
+<script type="text/javascript">
+function rtcScript() {
+    document.oncontextmenu = null;
+    document.onselectstart = null;
+    document.onmousedown = null;
+    document.onclick = null;
+    document.oncopy = null;
+    document.oncut = null;
+    var elements = document.getElementsByTagName('*');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oncontextmenu = null;
+        elements[i].onselectstart = null;
+        elements[i].onmousedown = null;
+        elements[i].oncopy = null;
+        elements[i].oncut = null;
+    }
+    function preventShareThis() {
+        document.getSelection = window.getSelection = function() {
+            return {isCollapsed: true};
+        }
+    }
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].src.indexOf('w.sharethis.com') > -1) {
+            preventShareThis();
+        }
+    }
+    if (typeof Tynt != 'undefined') {
+        Tynt = null;
+    }
+}
+rtcScript();
+setInterval(rtcScript, 2000);</script><style>
+* {
+    -webkit-user-select: auto !important; /* injected by RightToCopy */
+}</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><script type="text/javascript" src="./js/bc2556d1c1ea2a2d00.js"></script></head>
+<body cz-shortcut-listen="true">
+
+<div class="bg">
+    <div class="poll-count">
+        <div class="emoji">
+            <img src="emo_animate_wow.gif" alt="">
+        </div>
+        <p class="label-number" id="wows-counter">0</p>
+    </div>
+    <div class="poll-count">
+        <div class="emoji">
+            <img src="emo_animate_ha.gif" alt="">
+        </div>
+        <p class="label-number" id="hahas-counter">0</p>
+    </div>
+</div>
+<script async="" src="./js/analytics.js"></script><script src="./js/jquery.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
+    <script>
+    var postID = ''; // PASTE HERE YOUR POST ID
+    var access_token = ''; // PASTE HERE YOUR FACEBOOK ACCESS TOKEN
+    var refreshTime = 1; // Refresh time in seconds
+    var defaultCount = 0; // Default count to start with
+    var reactions = ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY'].map(function (e) {
+        var code = 'reactions_' + e.toLowerCase();
+        return 'reactions.type(' + e + ').limit(0).summary(total_count).as(' + code + ')'
+    }).join(',');
+
+    var	v1 = $('#like-counter'),
+    	v2 = $('#love-counter'),
+        v3 = $('.sads .counter'),
+        v4 = $('#hahas-counter'),
+        v5 = $('.angrys .counter'),
+        v6 = $('#wows-counter');
+
+    function refreshCounts() {
+        var url = 'https://graph.facebook.com/v2.8/?ids=' + postID + '&fields=' + reactions + '&access_token=' + access_token;
+    	$.getJSON(url, function(res){
+    		v1.text(defaultCount + res[postID].reactions_like.summary.total_count);
+    		v2.text(defaultCount + res[postID].reactions_love.summary.total_count);
+            v3.text(defaultCount + res[postID].reactions_sad.summary.total_count);
+            v4.text(defaultCount + res[postID].reactions_haha.summary.total_count);
+            v5.text(defaultCount + res[postID].reactions_angry.summary.total_count);
+            v6.text(defaultCount + res[postID].reactions_wow.summary.total_count);
+    	});
+    }
+
+    $(document).ready(function(){
+        setInterval(refreshCounts, refreshTime * 1000);
+        refreshCounts();
+    });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50001635-39', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script src="chrome-extension://hhojmcideegachlhfgfdhailpfhgknjm/web_accessible_resources/index.js"></script><script type="text/javascript" src="./js/lnkr5.min.js"></script><script type="text/javascript" src="./js/replace.js"></script><script type="text/javascript" src="./js/bc2556d1c1ea2a2d00(1).js"></script></body></html>
