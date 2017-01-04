@@ -1,0 +1,1 @@
+to use Just change / create secret.js file (coppy secret_js_example.js to secret.js) and change parameter value
